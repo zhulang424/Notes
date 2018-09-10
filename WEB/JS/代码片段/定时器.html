@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CountDown</title>
+</head>
+
+<body>
+  <p id="count-down">倒计时</p>
+  <p id="current-time">当前时间</p>
+  <script>
+    /*
+     *  倒计时60s
+     *
+     *  思路：
+     *  1.创建一个立即执行匿名函数，在函数中对倒计时数值进行修改
+     *  2.在匿名函数中设置 1000ms 的定时器，并通过 arguments.callee 循环调用该匿名函数
+     *  3.记得在匿名函数中取消定时器
+     */
+    var countDown = document.getElementById('count-down')
+    var currentTime = document.getElementById('current-time')
+    var time = 60;
+    (function () {
+      clearTimeout(timeoutId)
+      countDown.innerHTML = time;
+      // countDown.firstChild.data = time;
+      // countDown.firstChild.nodeValue = time;
+      currentTime.innerHTML = new Date();
+      time--;
+      if (time >= 0) {
+        var timeoutId = setTimeout(arguments.callee, 1000)
+      }
+    })()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>左右布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 使用浮动 -->
+  <section class="layout-float">
+    <style>
+      .layout-float>.left-right {
+        overflow: hidden;
+      }
+
+      .layout-float>.left-right>div {
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+      }
+
+      .layout-float>.left-right>.left {
+        width: 300px;
+        float: left;
+        background-color: red;
+      }
+
+      .layout-float>.left-right>.right {
+        margin-left: 300px;
+        background-color: green;
+      }
+    </style>
+    <article class="left-right">
+      <div class="left">
+        <p>固定宽度 300px</p>
+      </div>
+      <div class="right">
+        <p>宽度自适应</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 使用绝对定位 -->
+  <section class="layout-postion">
+    <style>
+      .layout-postion {
+        margin-top: 10px;
+      }
+
+      .layout-postion>.left-right {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .layout-postion>.left-right>div {
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+      }
+
+      .layout-postion>.left-right>.left {
+        width: 300px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: red;
+      }
+
+      .layout-postion>.left-right>.right {
+        margin-left: 300px;
+        background-color: green;
+      }
+    </style>
+    <article class="left-right">
+      <div class="left">
+        <p>固定宽度 300px</p>
+      </div>
+      <div class="right">
+        <p>宽度自适应</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 使用表格 -->
+  <section class="layout-table">
+    <style>
+      .layout-table {
+        margin-top: 10px;
+      }
+
+      .layout-table>.left-right {
+        display: table;
+        width: 100%;
+      }
+
+      .layout-table>.left-right>.left {
+        display: table-cell;
+        width: 300px;
+        background-color: red;
+      }
+
+      .layout-table>.left-right>.right {
+        display: table-cell;
+        background-color: green;
+      }
+    </style>
+    <article class="left-right">
+      <div class="left">
+        <p>固定宽度 300px</p>
+      </div>
+      <div class="right">
+        <p>宽度自适应</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 使用 Flexbox -->
+  <section class="layout-flexbox">
+    <style>
+      .layout-flexbox {
+        margin-top: 10px;
+      }
+
+      .layout-flexbox>.left-right {
+        display: flex;
+      }
+
+      .layout-flexbox>.left-right>.left {
+        width: 300px;
+        background-color: red;
+      }
+
+      .layout-flexbox>.left-right>.right {
+        flex: 1;
+        background-color: green;
+      }
+    </style>
+    <article class="left-right">
+      <div class="left">
+        <p>固定宽度 300px</p>
+      </div>
+      <div class="right">
+        <p>宽度自适应</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="layout-grid">
+    <style>
+      .layout-grid {
+        margin-top: 10px;
+      }
+
+      .layout-grid>.left-right {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+      }
+
+      .layout-grid>.left-right>.left {
+        background-color: red;
+      }
+
+      .layout-grid>.left-right>.right {
+        background-color: green;
+      }
+    </style>
+    <article class="left-right">
+      <div class="left">
+        <p>固定宽度 300px</p>
+      </div>
+      <div class="right">
+        <p>宽度自适应</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+        <p>扩展高度</p>
+      </div>
+    </article>
+  </section>
+</body>
+
+</html>

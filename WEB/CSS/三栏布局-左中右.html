@@ -1,0 +1,222 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 使用浮动 -->
+  <div class="layout-float">
+    <style>
+      .layout-float {
+        overflow: hidden;
+      }
+
+      .layout-float>div {
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+      }
+
+      .layout-float>.left {
+        float: left;
+        width: 300px;
+        background-color: red;
+      }
+
+      .layout-float>.right {
+        width: 300px;
+        float: right;
+        background-color: green;
+      }
+
+      .layout-float>.center {
+        background-color: blue;
+        color: white;
+        margin-left: 300px;
+        margin-right: 300px;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="center">
+      <p>使用浮动</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+    </div>
+  </div>
+
+  <!-- 绝对定位 -->
+  <div class="layout-absolute">
+    <style>
+      .layout-absolute {
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .layout-absolute>div {
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+      }
+
+      .layout-absolute>.center {
+        margin-left: 300px;
+        margin-right: 300px;
+        background-color: blue;
+        color: white;
+      }
+
+      .layout-absolute>.left {
+        width: 300px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: red;
+      }
+
+      .layout-absolute>.right {
+        width: 300px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: green;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="center">
+      <p>使用绝对定位</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+    </div>
+  </div>
+
+  <!-- 使用表格 -->
+  <div class="layout-table">
+    <style>
+      .layout-table {
+        display: table;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .layout-table>div {
+        display: table-cell;
+      }
+
+      .layout-table>.left,
+      .layout-table>.right {
+        width: 300px;
+      }
+
+      .layout-table>.left {
+        background-color: red;
+      }
+
+      .layout-table>.right {
+        background-color: green;
+      }
+
+      .layout-table>.center {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <p>使用表格</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+    </div>
+    <div class="right"></div>
+  </div>
+
+  <!-- flexbox -->
+  <div class="layout-flexbox">
+    <style>
+      .layout-flexbox {
+        margin-top: 10px;
+        display: flex;
+      }
+
+      .layout-flexbox>.left {
+        width: 300px;
+        background-color: red;
+      }
+
+      .layout-flexbox>.right {
+        width: 300px;
+        background-color: green;
+      }
+
+      .layout-flexbox>.center {
+        flex: 1;
+        background-color: blue;
+        color: white;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <p>使用 flexbox</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+    </div>
+    <div class="right"></div>
+  </div>
+
+  <!-- grid -->
+  <div class="layout-grid">
+    <style>
+      .layout-grid {
+        display: grid;
+        margin-top: 10px;
+        grid-template-columns: 300px 1fr 300px;
+      }
+
+      .layout-grid>.left {
+        background-color: red;
+      }
+
+      .layout-grid>.right {
+        background-color: green;
+      }
+
+      .layout-grid>.center {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="center">
+      <p>使用 grid 网格</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+      <p>增加高度</p>
+    </div>
+    <div class="right"></div>
+  </div>
+
+</body>
+
+</html>

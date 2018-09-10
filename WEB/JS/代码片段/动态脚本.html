@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态脚本</title>
+</head>
+
+<body>
+  <script>
+    window.addEventListener('laod', function (event) {
+      // 动态加载外部 js 文件
+      function loadScript(url) {
+        var dynamicScript = document.createElement('script')
+        dynamicScript.type = 'text/javascript'
+        dynamicScript.src = url
+        document.body.appendChild(dynamicScript)
+      }
+      // 动态加载 js 代码
+      function loadScriptString(code) {
+        var dynamicScript = document.createElement('script')
+        dynamicScript.appendChild(document.createTextNode(code))
+        document.body.appendChild(dynamicScript)
+      }
+    }, false)
+  </script>
+</body>
+
+</html>

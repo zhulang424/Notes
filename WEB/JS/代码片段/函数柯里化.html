@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数柯里化</title>
+</head>
+
+<body>
+  <script>
+    function curry(func, context) {
+      var finalArgs = Array.prototype.slice.call(arguments, 2) // 保存部分参数
+      return function () {
+        var newArgs = Array.prototype.slice.call(arguments)  // 拿到新参数
+        finalArgs = finalArgs.concat(newArgs)  // 将新拿到的参数拼接到原参数数组
+        if (finalArgs.length >= func.length) {  // 判断参数数量是否足够
+          return func.apply(context, finalArgs)  // 足够的话执行函数
+        } else {
+          return arguments.callee // 不够的话继续返回该闭包
+        }
+      }
+    }
+
+    function add(num1, num2, num3) {
+      console.log(arguments)
+      return num1 + num2 + num3
+    }
+
+    var curryAdd = curry(add, this, 1)
+    var result = curryAdd(2)
+    while (typeof result === 'function') {
+      result = result(3)
+    }
+    console.log(result)
+  </script>
+</body>
+
+</html>

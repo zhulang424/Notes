@@ -1,0 +1,129 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>元素滚动</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #div1,
+    #div2,
+    #div3,
+    #div4 {
+      height: 100%;
+    }
+
+    #div1 {
+      background-color: red;
+    }
+
+    #div2 {
+      background-color: green;
+    }
+
+    #div3 {
+      background-color: blue;
+    }
+
+    #div4 {
+      background-color: black;
+    }
+
+    .link {
+      display: block;
+      color: gray;
+    }
+
+    ul li {
+      display: inline-block;
+    }
+
+    ul {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div1">1</div>
+  <div id="div2">2</div>
+  <div id="div3">3</div>
+  <div id="div4">4</div>
+
+  <ul>
+    <li>
+      <a href="#" class="link" id="link1">元素滚动</a>
+    </li>
+    <li>
+      <a href="#" class="link" id="link2">页面滚动</a>
+    </li>
+  </ul>
+
+  <script>
+    var div4 = document.getElementById('div4')
+    var link1 = document.getElementById('link1')
+    var link2 = document.getElementById('link2')
+
+    // 元素在父元素中偏移
+    console.log('scrollLeft:' + div2.offsetLeft + ',scrollTop:' + div2.offsetTop)
+
+    // 元素滚动
+    link1.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      div4.scrollIntoView(false);  // TRUE：元素顶部与页面顶部平齐，FALSE：元素底部与页面底部平齐
+      // 缺点：与使用锚相同，滚动时没有过渡效果
+    }, false)
+
+    // 页面滚动
+    link2.addEventListener('click', function (event) {
+      // 方法：修改 document.body.scrollTop
+      // 思路：使用定时器，让页面分段滚动，产生过渡效果
+      // 实现：获取当前滚动位置，与目标滚动位置相减后除以滚动次数，得到每次滚动距离，设置定时器，在定时器中先判断当前滚动位置，如果没有达到目标位置的话，修改 document.body.scrollTop，并再次设置定时器调用该回调，产生循环
+      event.preventDefault();
+
+      var currentTop = document.body.scrollTop; // 当前滚动位置
+      var targetTop = 0;  // 目标滚动位置
+      var scrollTimes = 100;  // 滚动次数
+      var scrollDistance = - (currentTop - targetTop) / scrollTimes;  // 每次滚动距离
+      var scrollInterval = 500 / scrollTimes;  // 定时器间隔
+
+      // 使用 setTimeout
+      setTimeout(function () {  // 设置定时器
+        var scrollTop = document.body.scrollTop;  // 当前滚动位置
+        if (scrollTop > targetTop) {  // 如果还未达到目标位置
+          // scrollTop += scrollDistance;  // 当次滚动后滚动位置
+          // document.body.scrollTop = scrollTop;  // 使页面滚动到当次应该滚动到的位置
+          window.scrollBy(0, scrollDistance)
+          setTimeout(arguments.callee, scrollInterval)  // 再次设置定时器，并调用该回调函数，产生循环
+        }
+      }, scrollInterval);
+
+      // 使用 setInterval
+      // var intervalID = setInterval(function () {
+      //   var scrollTop = document.body.scrollTop
+      //   if (scrollTop > targetTop) {
+      //     scrollTop += scrollDistance;
+      //     document.body.scrollTop = scrollTop;
+      //   } else {
+      //     clearInterval(intervalID)
+      //   }
+      // }, scrollInterval)
+
+      // window.scrollTo(0, 0)
+
+
+    }, false)
+  </script>
+</body>
+
+</html>

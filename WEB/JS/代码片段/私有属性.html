@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试原型属性访问私有变量</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person() {
+			// 私有变量
+			var name = "David";
+
+			// 两种定义特权方法的方式
+			// 1.在实例属性上定义特权方法,特点:不复用
+			this.getName = function () {
+				return name;
+			};
+			this.setName = function (newName) {
+				name = newName;
+			};
+			// 2.在原型属性上定义特权方法,特点:复用
+			// if (typeof this.getName !== "function") {
+			// 	Person.prototype.getName = function() {
+			// 		return name;
+			// 	};
+			// 	Person.prototype.setName = function (newName) {
+			// 		name = newName;
+			// 	};
+			// }
+		}
+
+		var person1 = new Person();
+		console.log("person1 name : " + person1.getName())
+		person1.setName("Bebe")
+		console.log("person1 changed name : " + person1.getName())
+
+		var person2 = new Person();
+		// person2.setName("Herry")
+		console.log("person2 name : " + person2.getName())
+		person2.setName("Harris")
+		console.log("person2 changed name : " + person2.getName())
+	</script>
+</body>
+</html>

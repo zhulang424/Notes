@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid</title>
+</head>
+
+<body>
+  <!-- 自己创建网格布局 -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 980px;
+    }
+
+    .wrapper {
+      padding-right: 20px;
+    }
+
+    .row {
+      clear: both;
+    }
+
+    .col {
+      width: 60px;
+      margin-left: 20px;
+      float: left;
+      background-color: red;
+    }
+
+    .span2 {
+      width: 140px;
+    }
+
+    .span3 {
+      width: 220px;
+    }
+
+    .span4 {
+      width: 300px;
+    }
+
+    .span5 {
+      width: 380px;
+    }
+
+    .span6 {
+      width: 460px;
+    }
+
+    .span7 {
+      width: 540px;
+    }
+
+    .span8 {
+      width: 620px;
+    }
+
+    .span9 {
+      width: 700px;
+    }
+
+    .span10 {
+      width: 780px;
+    }
+
+    .span11 {
+      width: 860px;
+    }
+
+    .span12 {
+      width: 940px;
+    }
+
+    div {
+      min-height: 100px;
+    }
+  </style>
+  <div class="wrapper">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col span1"></div>
+      <div class="col span8"></div>
+      <div class="col span3"></div>
+    </div>
+  </div>
+
+  <!-- CSS3 Grid -->
+  <a href="https://www.cnblogs.com/xiaohuochai/p/7083153.html" target="_blank">
+    <h1>Grid学习链接</h1>
+  </a>
+</body>
+
+</html>
