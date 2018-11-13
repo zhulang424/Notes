@@ -50,16 +50,19 @@
 > - 如果节点已经存在于 DOM 结构中，这个方法起到移动节点位置的作用（每个节点在 DOM 结构中只能存在一个）
 
 > ```insertBefore()```
+>
 > - 插入节点到某节点之前并返回
 
 替换节点
 
 > ```replaceChild()```
+>
 > - 替换节点并返回，包括节点的关系指针（parentNode、childNodes 等）
 
 移除节点
 
 > ```removeChild()```
+>
 > - 移除节点并返回
 
 ### 操作节点本身
@@ -556,8 +559,8 @@ textContent【IE9+】
 > 确定文档总高度（html 元素滚动大小）：取 HTML 元素的 scrollHeight 和 clientHeight 的最大值
 >
 > ```javascript
->     var docWidth = Math.max(document.documentElement.clientWidth,document.documentElement.scrollWidth)
->     var docHeight = Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight)
+> var docWidth = Math.max(document.documentElement.clientWidth,document.documentElement.scrollWidth)
+> var docHeight = Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight)
 > ```
 
 ## 样式
