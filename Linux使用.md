@@ -37,6 +37,18 @@ vi <fileName>
 vim <fileName>
 ```
 
+# 查找可执行文件位置
+
+```shell
+which [command]
+```
+
+# 查找文件位置
+
+```shell
+find [file]
+```
+
 # 修改命令行前缀
 
 ```shell
